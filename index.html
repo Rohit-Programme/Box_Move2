@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Move the Box</title>
+   <style>
+    #box {
+        height: 200px;
+        width: 200px;
+        background-color: yellow;
+        border: 3px solid black;
+        position: relative;
+        margin: auto;
+        transition: left 0.3s, right 0.3s;
+    }
+   </style>
+</head>
+<body>
+<div id="box"></div>
+<button onclick="moveBox(-1)">Move Left</button>
+<button onclick="moveBox(1)">Move Right</button>
+</body>
+<script>
+function moveBox(distanceFraction) {
+    var box = document.getElementById('box');
+    var currentLeft = parseFloat(getComputedStyle(box).left);
+    var offset = 1 * box.offsetWidth * distanceFraction;
+    box.style.left = (currentLeft + offset) + 'px';
+}
+</script>
+</html>
